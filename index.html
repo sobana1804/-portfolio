@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobana J - Data Analyst Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        nav {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5aa0 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffc107;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .header-image {
+            width: 150px;
+            height: 180px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 4px solid #2c5aa0;
+        }
+
+        .header-text h1 {
+            font-size: 2.5rem;
+            color: #1a365d;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-text .title {
+            font-size: 1.5rem;
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a {
+            color: #2c5aa0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #ffc107;
+        }
+
+        section {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        h2 {
+            color: #1a365d;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #2c5aa0;
+        }
+
+        h3 {
+            color: #2c5aa0;
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #e6f0ff 0%, #f0f4ff 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #2c5aa0;
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(44, 90, 160, 0.2);
+        }
+
+        .skill-card h4 {
+            color: #1a365d;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .skill-card p {
+            color: #555;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .project-card {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #2c5aa0;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            background: #f0f4ff;
+            box-shadow: 0 4px 12px rgba(44, 90, 160, 0.2);
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-tag {
+            background: #2c5aa0;
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .achievement {
+            background: linear-gradient(135deg, #fff8dc 0%, #fffacd 100%);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .achievement::before {
+            content: "⭐";
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .achievement p {
+            margin: 0;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .experience-card {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #2c5aa0;
+        }
+
+        .experience-card h3 {
+            margin-top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .date-badge {
+            background: #e6f0ff;
+            color: #2c5aa0;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5aa0 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            border-radius: 10px;
+        }
+
+        footer a {
+            color: #ffc107;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #2c5aa0;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 99;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .scroll-top:hover {
+            background: #1a365d;
+            transform: translateY(-5px);
+        }
+
+        .scroll-top.show {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-text h1 {
+                font-size: 2rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                gap: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .header-text h1 {
+                font-size: 1.5rem;
+            }
+
+            .header-text .title {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Header Section -->
+        <section class="header" id="home">
+            <div class="header-content">
+                <img src="photo.png" alt="Sobana J" class="header-image">
+                <div class="header-text">
+                    <h1>SOBANA J</h1>
+                    <p class="title">Data Analyst</p>
+                    <p style="margin-bottom: 1rem; text-align: center;">Computer Science & Engineering | Data Analytics | Web Development</p>
+                    <div class="contact-info">
+                        <a href="tel:+919363349596">📱 +91 9363349596</a>
+                        <a href="mailto:sobanajayavel1804@gmail.com">📧 Email</a>
+                        <a href="https://linkedin.com/in/sobana-jayavel" target="_blank">💼 LinkedIn</a>
+                        <a href="https://github.com/sobana1804" target="_blank">🐙 GitHub</a>
+                    </div>
+                    <p style="font-size: 0.9rem; margin-top: 1rem; color: #666;">📍 Krishnagiri, Tamil Nadu, India</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                Results-driven Computer Science graduate with strong expertise in data analysis, SQL, Python, and business intelligence tools. Proven ability to transform complex datasets into actionable insights through advanced analytics and visualization. Passionate about leveraging data-driven decision-making to solve real-world business problems.
+            </p>
+            <p>
+                Recognized with a Best Paper Award at ICICEA'26 for developing innovative solutions in Legal AI. Published researcher with a book chapter in "Intelligent Computing and Explainable AI". Known for attention to detail, adaptability, and effective team collaboration in dynamic environments.
+            </p>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>📊 Data Analysis</h4>
+                    <p>MS Excel, SQL, Python (Pandas, NumPy), Statistics</p>
+                </div>
+                <div class="skill-card">
+                    <h4>🗄️ Database</h4>
+                    <p>MySQL, Data Modeling, Query Optimization</p>
+                </div>
+                <div class="skill-card">
+                    <h4>🐍 Programming</h4>
+                    <p>Python, SQL, JavaScript, HTML, CSS</p>
+                </div>
+                <div class="skill-card">
+                    <h4>📈 BI & Visualization</h4>
+                    <p>Power BI, Advanced Excel Dashboards</p>
+                </div>
+                <div class="skill-card">
+                    <h4>🎨 Web & UI</h4>
+                    <p>HTML, CSS, JavaScript, Figma, UI/UX Design</p>
+                </div>
+                <div class="skill-card">
+                    <h4>⚙️ Tools & Platforms</h4>
+                    <p>WPS Spreadsheets, MySQL Workbench, GitHub</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Key Projects</h2>
+
+            <div class="project-card">
+                <h3>🤖 ReLEXPROMPT – Legal AI Framework</h3>
+                <p><strong>Best Paper Award @ ICICEA'26</strong></p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Legal-BERT</span>
+                    <span class="tech-tag">RAG</span>
+                    <span class="tech-tag">FAISS</span>
+                    <span class="tech-tag">NLP</span>
+                </div>
+                <p>
+                    Engineered a cutting-edge structured prompting framework leveraging Legal-BERT embeddings, Dense Passage Retrieval (DPR), and Retrieval-Augmented Generation (RAG). System supports multiple legal tasks including statutory interpretation, contract review, case summarization, and legal Q&A.
+                </p>
+                <p><strong>Results:</strong> 96.9% Exact Match, 96.1% F1 Score</p>
+            </div>
+
+            <div class="project-card">
+                <h3>🔄 Let AI Do the Copy-Paste</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag">UiPath Studio</span>
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">Excel</span>
+                    <span class="tech-tag">UI/UX Design</span>
+                </div>
+                <p>
+                    Developed an intelligent automation system that reads Excel spreadsheets and automatically populates digital forms. Designed a user-friendly UI/UX prototype that reduced manual data entry effort while minimizing human errors and improving overall workflow efficiency.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <h3>📚 Land Lens – AI-Powered Litigation Mapping</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Legal-BERT</span>
+                    <span class="tech-tag">FAISS</span>
+                    <span class="tech-tag">RAG Pipeline</span>
+                </div>
+                <p>
+                    Developed AI-powered litigation mapping platform integrating land survey records with India's National Judicial Data Grid (NJDG). Team-based project combining legal expertise with advanced NLP and vector search capabilities.
+                </p>
+            </div>
+
+           
+
+            <div class="project-card">
+                <h3>🌐 Personal Portfolio Website</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Responsive Design</span>
+                </div>
+                <p>
+                    Designed and developed a professional portfolio website showcasing projects, achievements, and technical skills. Responsive design with smooth scrolling, animations, and modern UI/UX principles.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <h3>📊 Superstore Sales Analytics</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag">Excel</span>
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">Power BI</span>
+                    <span class="tech-tag">Data Analysis</span>
+                </div>
+                <p>
+                    Performed comprehensive data analysis on Superstore Sales Dataset. Created interactive Power BI dashboards, generated business insights, and wrote SQL queries for data extraction and analysis. Completed full EDA and visualization pipeline.
+                </p>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements">
+            <h2>Achievements & Awards</h2>
+
+            <div class="achievement">
+                <p>🏆 <strong>Best Paper Award</strong> – ICICEA'26 International Conference for "ReLEXPROMPT: A Reusable Structured Prompting Framework with RAG for Legal Tasks"</p>
+            </div>
+
+            <div class="achievement">
+                <p>📖 <strong>Published Book Chapter</strong> – "Intelligent Computing and Explainable AI" (ISBN: 9789357170383)</p>
+            </div>
+
+            <div class="achievement">
+                <p>🎓 <strong>Academic Excellence</strong> – CGPA: 8.00 at Anna University, B.E. Computer Science & Engineering</p>
+            </div>
+
+            <div class="achievement">
+                <p>🥇 <strong>Multiple Internships</strong> – Data Analytics, Web Development, and Business Intelligence roles at leading tech companies</p>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Experience & Internships</h2>
+
+            <div class="experience-card">
+                <h3>
+                    Cognifyz Web Development Internship
+                    <span class="date-badge"> Cognifyz - Ongoing 2026</span>
+                </h3>
+                <p>
+                    Developing full-stack web applications with focus on responsive design and modern JavaScript frameworks. Progressed through multiple levels completing comprehensive web development projects and assignments.
+                </p>
+            </div>
+
+            <div class="experience-card">
+                <h3>
+                    Data Analytics & Business Intelligence
+                    <span class="date-badge">Maincrafts Technology - Ongoing 2026</span>
+                </h3>
+                <p>
+                    Analyzed business datasets using Power BI and SQL. Created interactive dashboards, performed pivot table analysis, generated actionable insights, and supported data-driven decision-making for business teams.
+                </p>
+            </div>
+
+            <div class="experience-card">
+                <h3>
+                    Web Development Internship
+                    <span class="date-badge">Jul 2025 - DLK Software Solutions</span>
+                </h3>
+                <p>
+                    Completed comprehensive web development training covering HTML, CSS, and JavaScript fundamentals with practical project implementation and real-world applications.
+                </p>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Education</h3>
+            <div class="experience-card" style="border-left-color: #28a745;">
+                <h3 style="margin-top: 0; color: #28a745;">
+                    B.E. Computer Science & Engineering
+                    <span class="date-badge" style="background: #d4edda; color: #28a745;">Oct 2022 – May 2026</span>
+                </h3>
+                <p><strong>Anna University, Panruti</strong></p>
+                <p>CGPA: 8.00 | Expected Graduation: May 2026</p>
+            </div>
+
+            <h3>Certifications & Training</h3>
+            <div class="experience-card">
+                <p style="margin: 0;">✅ Introduction to Programming Using Python – HCL GUVI (Jul 2025)</p>
+            </div>
+            <div class="experience-card">
+                <p style="margin: 0;">✅ Data Visualization with Python – HCL GUVI (Apr 2026)</p>
+            </div>
+            <div class="experience-card">
+                <p style="margin: 0;">✅ Machine Learning & Deep Learning – Professional Certifications</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Let's Connect!</h2>
+            <p style="text-align: center; font-size: 1.1rem;">
+                I'm always interested in hearing about new opportunities and challenges in Data Analytics and Web Development.
+            </p>
+            <div class="contact-info" style="justify-content: center;">
+                <a href="mailto:sobanajayavel1804@gmail.com">📧 sobanajayavel1804@gmail.com</a>
+                <a href="tel:+919363349596">📱 +91 9363349596</a>
+                <a href="https://linkedin.com/in/sobana-jayavel" target="_blank">💼 LinkedIn</a>
+                <a href="https://github.com/sobana1804" target="_blank">🐙 GitHub</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Sobana J.</p>
+        <p>Built with ❤️ | <a href="https://github.com/sobana1804" target="_blank">View Source Code</a></p>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">↑</div>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 0.6s ease-out';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
